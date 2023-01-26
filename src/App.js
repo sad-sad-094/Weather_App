@@ -81,7 +81,7 @@ function App() {
 
       <Navbar />
 
-      <Container maxWidth="lg" component="div">
+      <Container maxWidth="lg" component="div" >
 
         <Box
           component="form"
@@ -98,7 +98,7 @@ function App() {
 
         <Box maxWidth="30%" component="div" sx={{ margin: ".5rem auto" }} >
 
-          <div className="weather_card">
+          <div className="weather_card" style={{marginTop: "4rem"}}>
 
             {data.main ? <CardHeader
               title={`${data.main.temp.toFixed()}°C`}
@@ -133,9 +133,9 @@ function App() {
                 Humidity: 0%
               </Typography>}
               {data.main ? <Typography variant="body1" color="text.secondary">
-                Pressure: {data.main.pressure}
+                Pressure: {data.main.pressure} Pa
               </Typography> : <Typography variant="body1" color="text.secondary">
-                Pressure: 0
+                Pressure: 0 Pa
               </Typography>}
 
             </CardContent>
