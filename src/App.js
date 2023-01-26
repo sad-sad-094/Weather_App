@@ -10,7 +10,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 import CardHeader from '@mui/material/CardHeader';
@@ -93,7 +92,7 @@ function App() {
 
           <TextField id="standard-basic" label="City" variant="standard" size="small" fullWidth color="secondary" helperText="Please enter a city" required={true} type="text" name="city" onChange={setLoc} />
 
-          <Button variant="contained" color="secondary" sx={{ margin: ".5rem 0" }} onClick={searchLocation}>Search</Button>
+          <Button variant="contained" color="primary" sx={{ margin: ".5rem 0" }} onClick={searchLocation}>Search</Button>
 
         </Box>
 
@@ -152,7 +151,7 @@ function App() {
             margin: '1rem auto'
           }}>
 
-          <Accordion expanded={expanded === 'panel1'} TransitionProps={{ unmountOnExit: true }} onChange={handleChange('panel1')}>
+          <Accordion expanded={expanded === 'panel1'} TransitionProps={{ unmountOnExit: true }} onChange={handleChange('panel1')} >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1bh-content"
