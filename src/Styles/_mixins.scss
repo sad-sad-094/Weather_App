@@ -1,0 +1,12 @@
+/* Author: Sebastian Aguirre Duque
+E-mail: sadw621@gmail.com */
+
+@mixin container_background {
+  background-color: rgba(225, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius:  15px;
+  border: 1px solid rgba(255, 255, 255, 0.5)
+}
+
+
+
