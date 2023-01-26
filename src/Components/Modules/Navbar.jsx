@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
 
-    <AppBar position="static" color="secondary">
+    <AppBar position="static" color="primary" className="navbar" >
 
       <Container maxWidth="xl">
 
