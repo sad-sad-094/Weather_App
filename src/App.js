@@ -86,25 +86,25 @@ function App() {
 
         <Box
           component="form"
-          sx={{ margin: '.5rem auto', width: '60%' }}
-          noValidate
+          Validate
           autoComplete="off"
+          className="input_field"
         >
 
           <TextField id="standard-basic" label="City" variant="standard" size="small" fullWidth color="secondary" helperText="Please enter a city" required={true} type="text" name="city" onChange={setLoc} />
 
-          <Button variant="outlined" color="secondary" sx={{ margin: ".5rem 0" }} onClick={searchLocation}>Search</Button>
+          <Button variant="contained" color="secondary" sx={{ margin: ".5rem 0" }} onClick={searchLocation}>Search</Button>
 
         </Box>
 
         <Box maxWidth="30%" component="div" sx={{ margin: ".5rem auto" }} >
 
-          <Card variant="outlined" color="secondary" sx={{ margin: '.4rem' }} raised="true">
+          <div className="weather_card">
 
             {data.main ? <CardHeader
               title={`${data.main.temp.toFixed()}°C`}
               subheader={data.name} /> : <CardHeader
-              title='Temp'
+              title='0°C'
               subheader='city' />}
 
             {data.weather ? <Typography variant="h5" color="text.primary" gutterBottom>
@@ -124,14 +124,14 @@ function App() {
                 Feels like: 0°C
               </Typography>}
               {data.wind ? <Typography variant="body1" color="text.secondary">
-                Wind: {data.wind.speed.toFixed()}Km/h
+                Wind: {data.wind.speed.toFixed()} Km/h
               </Typography> : <Typography variant="body1" color="text.secondary">
-                Wind: 0Km/h
+                Wind: 0 Km/h
               </Typography>}
               {data.main ? <Typography variant="body1" color="text.secondary">
                 Humidity: {data.main.humidity.toFixed()}%
               </Typography> : <Typography variant="body1" color="text.secondary">
-                Humidity: %
+                Humidity: 0%
               </Typography>}
               {data.main ? <Typography variant="body1" color="text.secondary">
                 Pressure: {data.main.pressure}
@@ -141,7 +141,7 @@ function App() {
 
             </CardContent>
 
-          </Card>
+          </div>
 
         </Box>
 
