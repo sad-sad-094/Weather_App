@@ -21,7 +21,10 @@ import Footer from './Components/Modules/Footer';
 function App() {
 
   const [data, setData] = useState({});
+  const [forecast, setForecast] = useState({})
   const [location, setLocation] = useState({ city: '' });
+  const [lat, setLat] = useState('');
+  const [lon, setLon] = useState('');
 
 
   const setLoc = (event) => {
@@ -32,24 +35,26 @@ function App() {
     })
   }
 
-  const weather_app_URL = `https://api.openweathermap.org/data/2.5/weather?q=${location.city}&units=metric&appid=b7d61ef3486144aebb1bbb78997254f1`;
+  const weather_api_URL = `https://api.openweathermap.org/data/2.5/weather?q=${location.city}&units=metric&appid=b7d61ef3486144aebb1bbb78997254f1`;
 
-  const searchLocation = () => {
-    axios.get(weather_app_URL)
+  const forecast_api_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=b7d61ef3486144aebb1bbb78997254f1`
+
+  async function searchForecast() {
+    const resp = await axios.get(forecast_api_URL);
+        let currentForecast = resp.data;
+        setForecast(currentForecast);
+        console.log(currentForecast);
+  }
+
+
+  const searchWeather = () => {
+    axios.get(weather_api_URL)
       .then((response) => {
-        setData(response.data)
+        setData(response.data);
+        setLat(response.data.coord.lat);
+        setLon(response.data.coord.lon);
       })
-    // const options = {
-    //   method: 'GET',
-    //   url: 'https://api.openweathermap.org/data/2.5/weather',
-    //   params: { q: 'London', appid: 'b7d61ef3486144aebb1bbb78997254f1' }
-    // };
-
-    // axios.request(options).then(function (response) {
-    //   console.log(response.data);
-    // }).catch(function (error) {
-    //   console.error(error);
-    // });
+    searchForecast();
   }
 
   // const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -73,7 +78,7 @@ function App() {
 
           <TextField id="standard-basic" label="City" variant="standard" size="small" fullWidth color="primary" helperText="Please enter a city" required={true} type="text" name="city" onChange={setLoc} />
 
-          <Button variant="contained" color="primary" sx={{ margin: ".5rem 0" }} onClick={searchLocation}>Search</Button>
+          <Button variant="contained" color="primary" sx={{ margin: ".5rem 0" }} onClick={searchWeather}>Search</Button>
 
         </Box>
 
@@ -91,7 +96,7 @@ function App() {
 
               {data.weather ? <Typography variant="h5" color="text.secondary" gutterBottom>
                 {data.weather[0].main}
-              </Typography> : null }
+              </Typography> : null}
 
             </div>
 
