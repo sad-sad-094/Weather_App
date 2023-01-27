@@ -41,9 +41,9 @@ function App() {
 
   async function searchForecast() {
     const resp = await axios.get(forecast_api_URL);
-        let currentForecast = resp.data;
-        setForecast(currentForecast);
-        console.log(currentForecast);
+    let currentForecast = resp.data;
+    setForecast(currentForecast);
+    console.log(currentForecast);
   }
 
 
@@ -94,9 +94,14 @@ function App() {
                 title='0°C'
                 subheader='city' />}
 
-              {data.weather ? <Typography variant="h5" color="text.secondary" gutterBottom>
-                {data.weather[0].main}
-              </Typography> : null}
+              <div className="weather_description">
+
+                {data.weather ? <img alt="weather" src={`./Img/${data.weather[0].icon}.png`} /> : null}
+                {data.weather ? <Typography variant="p" color="text.secondary" gutterBottom>
+                  {data.weather[0].main}
+                </Typography> : null}
+
+              </div>
 
             </div>
 

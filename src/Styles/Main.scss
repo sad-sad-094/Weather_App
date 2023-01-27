@@ -58,4 +58,15 @@ E-mail: sadw621@gmail.com */
   font-weight: bold;
 }
 
+.weather_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather_description img {
+  width: 50%;
+}
+
 
