@@ -57,10 +57,6 @@ function App() {
     searchForecast();
   }
 
-  // const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-
-
   return (
 
     <>
@@ -82,60 +78,60 @@ function App() {
 
         </Box>
 
-        <Box maxWidth="30%" component="div" sx={{ margin: ".5rem auto" }} >
+          <Box maxWidth="30%" component="div" sx={{ margin: ".5rem auto" }} >
 
-          <div className="weather_card" style={{ marginTop: "4rem" }}>
+            <div className="weather_card" style={{ marginTop: "4rem" }}>
 
-            <div className="weather">
+              <div className="weather">
 
-              {data.main ? <CardHeader
-                title={`${data.main.temp.toFixed()}°C`}
-                subheader={data.name} /> : <CardHeader
-                title='0°C'
-                subheader='city' />}
+                {data.main ? <CardHeader
+                  title={`${data.main.temp.toFixed()}°C`}
+                  subheader={data.name} /> : <CardHeader
+                  title='0°C'
+                  subheader='city' />}
 
-              <div className="weather_description">
+                <div className="weather_description">
 
-                {data.weather ? <img alt="weather" src={`./Img/${data.weather[0].icon}.png`} /> : null}
-                {data.weather ? <Typography variant="p" color="text.secondary" gutterBottom>
-                  {data.weather[0].main}
-                </Typography> : null}
+                  {data.weather ? <img alt="weather" src={`./Img/${data.weather[0].icon}.png`} /> : null}
+                  {data.weather ? <Typography variant="p" color="text.secondary" gutterBottom>
+                    {data.weather[0].main}
+                  </Typography> : null}
+
+                </div>
 
               </div>
 
+              <CardContent>
+
+                <Typography variant="h5" color="text.secondary" gutterBottom>
+                  Details
+                </Typography>
+                {data.main ? <Typography variant="body1" color="text.primary">
+                  Feels like: {data.main.feels_like.toFixed()}°C
+                </Typography> : <Typography variant="body1" color="text.primary">
+                  Feels like: 0°C
+                </Typography>}
+                {data.wind ? <Typography variant="body1" color="text.primary">
+                  Wind: {data.wind.speed.toFixed()} Km/h
+                </Typography> : <Typography variant="body1" color="text.primary">
+                  Wind: 0 Km/h
+                </Typography>}
+                {data.main ? <Typography variant="body1" color="text.primary">
+                  Humidity: {data.main.humidity.toFixed()}%
+                </Typography> : <Typography variant="body1" color="text.primary">
+                  Humidity: 0%
+                </Typography>}
+                {data.main ? <Typography variant="body1" color="text.primary">
+                  Pressure: {data.main.pressure} hPa
+                </Typography> : <Typography variant="body1" color="text.primary">
+                  Pressure: 0 hPa
+                </Typography>}
+
+              </CardContent>
+
             </div>
 
-            <CardContent>
-
-              <Typography variant="h5" color="text.secondary" gutterBottom>
-                Details
-              </Typography>
-              {data.main ? <Typography variant="body1" color="text.primary">
-                Feels like: {data.main.feels_like.toFixed()}°C
-              </Typography> : <Typography variant="body1" color="text.primary">
-                Feels like: 0°C
-              </Typography>}
-              {data.wind ? <Typography variant="body1" color="text.primary">
-                Wind: {data.wind.speed.toFixed()} Km/h
-              </Typography> : <Typography variant="body1" color="text.primary">
-                Wind: 0 Km/h
-              </Typography>}
-              {data.main ? <Typography variant="body1" color="text.primary">
-                Humidity: {data.main.humidity.toFixed()}%
-              </Typography> : <Typography variant="body1" color="text.primary">
-                Humidity: 0%
-              </Typography>}
-              {data.main ? <Typography variant="body1" color="text.primary">
-                Pressure: {data.main.pressure} hPa
-              </Typography> : <Typography variant="body1" color="text.primary">
-                Pressure: 0 hPa
-              </Typography>}
-
-            </CardContent>
-
-          </div>
-
-        </Box>
+          </Box>
 
       </Container>
 
