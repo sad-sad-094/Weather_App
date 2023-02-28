@@ -13,7 +13,7 @@ To execute this technical test it is necesary to have installed _node.js_ at _v1
 
 Then it is necesary to clone the repository into a local directory in a console or a terminal, using: 
 ```
-git clone https://github.com/sad-sad-094/PT-Mentorias-App_Academia-Geek/tree/main
+git clone https://github.com/sad-sad-094/Weather_App.git
 ```
 Once the previous step was done it is neccessary to run (on console or terminal) 
 ```
